@@ -56,12 +56,26 @@ export const Search = styled.input.attrs({ placeholder: "Search" })`
     &::placeholder{
         color: #999
     }
+    &.focused{
+        width: 240px;
+    }
 `;
 
 export const SearchWraper = styled.div`
     float: left;
     position: relative;
-   
+    .slide-enter {
+        transition: all 200 ease-out;
+    }
+    .slide-enter-active {
+        width: 240px;
+    }
+    .slide-exit {
+        transition: all 200 ease-out;
+    }
+    .slide-exit-active {
+        width: 160px;
+    }
     .iconfont{
         position: absolute;
         width: 30px;
@@ -69,9 +83,14 @@ export const SearchWraper = styled.div`
         border-radius: 15px;
         right: 15px;
         bottom: 13px;
-        background: green;
+        
         text-align: center;
+        &.focused{
+            background: #777;
+            color: white;
+        }
     }
+
 `;
 
 export const Addition = styled.div`

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CSSTransition } from "react-transition-group";
 import {
     Addition,
     Button,
@@ -15,7 +16,9 @@ class Header extends Component {
         super(props);
         this.state = {
             focused: false
-        }
+        };
+        this.handleSearchFocus = this.handleSearchFocus.bind(this);
+        this.handleSearchBlur = this.handleSearchBlur.bind(this);
     }
     render() {
         return (
@@ -29,8 +32,21 @@ class Header extends Component {
                         <span className="iconfont">&#xe636;</span>
                     </NavItem>
                     <SearchWraper>
-                        <Search className={this.state.focused ? "aaa" : "bbb"}></Search>
-                        <span className="iconfont">&#xe637;</span>
+                        <CSSTransition
+                            in={this.state.focused}
+                            timeout={200}
+                            classNames="slide"
+                        >
+                            <Search
+                                className={this.state.focused ? "focused" : ""}
+                                onFocus={this.handleSearchFocus}
+                                onBlur={this.handleSearchBlur}
+                            >
+                            </Search>
+                        </CSSTransition>
+                        <span className={this.state.focused ? "focused iconfont" : "iconfont"}    >
+                            &#xe637;
+                        </span>
                     </SearchWraper>
 
                     <Addition>
@@ -44,6 +60,16 @@ class Header extends Component {
 
             </HeaderWrapper>
         );
+    }
+    handleSearchFocus() {
+        this.setState({
+            focused: true
+        });
+    }
+    handleSearchBlur() {
+        this.setState({
+            focused: false
+        });
     }
 }
 
