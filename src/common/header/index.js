@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
+import { connect } from "react-redux";
 import {
     Addition,
     Button,
@@ -12,14 +13,7 @@ import {
 } from "./style";
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            focused: false
-        };
-        this.handleSearchFocus = this.handleSearchFocus.bind(this);
-        this.handleSearchBlur = this.handleSearchBlur.bind(this);
-    }
+
     render() {
         return (
             <HeaderWrapper>
@@ -33,18 +27,18 @@ class Header extends Component {
                     </NavItem>
                     <SearchWraper>
                         <CSSTransition
-                            in={this.state.focused}
+                            in={this.props.focused}
                             timeout={200}
                             classNames="slide"
                         >
                             <Search
-                                className={this.state.focused ? "focused" : ""}
-                                onFocus={this.handleSearchFocus}
-                                onBlur={this.handleSearchBlur}
+                                className={this.props.focused ? "focused" : ""}
+                                onFocus={this.props.handleSearchFocus}
+                                onBlur={this.props.handleSearchBlur}
                             >
                             </Search>
                         </CSSTransition>
-                        <span className={this.state.focused ? "focused iconfont" : "iconfont"}    >
+                        <span className={this.props.focused ? "focused iconfont" : "iconfont"}    >
                             &#xe637;
                         </span>
                     </SearchWraper>
@@ -61,16 +55,31 @@ class Header extends Component {
             </HeaderWrapper>
         );
     }
-    handleSearchFocus() {
-        this.setState({
-            focused: true
-        });
-    }
-    handleSearchBlur() {
-        this.setState({
-            focused: false
-        });
-    }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        focused: state.focused
+    };
+}
+
+const mapStateToDispatch = (dispatch) => {
+    return {
+        handleSearchFocus() {
+            //console.log('15999');
+            const action = {
+                type: 'search_focus',
+            };
+            dispatch(action);
+        },
+        handleSearchBlur() {
+            const action = {
+                type: 'search_blur',
+            };
+            dispatch(action);
+        }
+
+    };
+}
+
+export default connect(mapStateToProps, mapStateToDispatch)(Header);
