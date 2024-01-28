@@ -95,3 +95,6 @@ Website introduction:
 
   1. install styled-components: Prevent css from coupling with each other
   2. use reset.css as global css;
+
+npm install react-transition-group@4.4.2
+1. use react-transition-group add animation;

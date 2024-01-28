@@ -11,6 +11,12 @@ import {
 } from "./style";
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            focused: false
+        }
+    }
     render() {
         return (
             <HeaderWrapper>
@@ -23,7 +29,7 @@ class Header extends Component {
                         <span className="iconfont">&#xe636;</span>
                     </NavItem>
                     <SearchWraper>
-                        <Search></Search>
+                        <Search className={this.state.focused ? "aaa" : "bbb"}></Search>
                         <span className="iconfont">&#xe637;</span>
                     </SearchWraper>
 

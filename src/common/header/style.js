@@ -46,12 +46,13 @@ export const Search = styled.input.attrs({ placeholder: "Search" })`
     width: 160px;
     height: 38px;
     margin: 9px;
-    padding: 0 15px;
+    padding: 0 40px 0 15px;
     box-sizing: border-box;
     border: none;
     border-line: none;
     border-radius: 19px;
     background: #eee;
+    color: #777;
     &::placeholder{
         color: #999
     }
