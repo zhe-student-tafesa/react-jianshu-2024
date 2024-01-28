@@ -52,6 +52,25 @@ export const Search = styled.input.attrs({ placeholder: "Search" })`
     border-line: none;
     border-radius: 19px;
     background: #eee;
+    &::placeholder{
+        color: #999
+    }
+`;
+
+export const SearchWraper = styled.div`
+    float: left;
+    position: relative;
+   
+    .iconfont{
+        position: absolute;
+        width: 30px;
+        line-height: 30px;
+        border-radius: 15px;
+        right: 15px;
+        bottom: 13px;
+        background: green;
+        text-align: center;
+    }
 `;
 
 export const Addition = styled.div`
