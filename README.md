@@ -98,3 +98,10 @@ Website introduction:
 
 npm install react-transition-group@4.4.2
 1. use react-transition-group add animation;
+
+1. add redux: data framework;
+2. add react-redux: Make redux more convenient to use;
+3. Move component status to redux for management: create store;  create reducer;  use connect and Provider
+
+
+1. add redux-devtools-extension;
