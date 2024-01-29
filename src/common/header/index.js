@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
+import { actionCreators } from './store/index.js'
 import {
     Addition,
     Button,
@@ -67,15 +68,11 @@ const mapStateToDispatch = (dispatch) => {
     return {
         handleSearchFocus() {
             //console.log('15999');
-            const action = {
-                type: 'search_focus',
-            };
+            const action = actionCreators.searchFocus();
             dispatch(action);
         },
         handleSearchBlur() {
-            const action = {
-                type: 'search_blur',
-            };
+            const action = actionCreators.searchBlur();
             dispatch(action);
         }
 
