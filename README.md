@@ -105,3 +105,7 @@ npm install react-transition-group@4.4.2
 
 
 1. add redux-devtools-extension;
+
+1. use actionCreators.js generate action;
+2. use constants to write action's TYPE: constants.js;
+3. Use index.js as interface;
