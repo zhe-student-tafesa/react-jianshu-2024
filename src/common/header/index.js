@@ -10,7 +10,12 @@ import {
     Nav,
     NavItem,
     Search,
-    SearchWraper
+    SearchItemWrapper,
+    SearchListShow,
+    SearchSwitch,
+    SearchTitle,
+    SearchWraper,
+    SearchItem
 } from "./style";
 
 class Header extends Component {
@@ -42,6 +47,33 @@ class Header extends Component {
                         <span className={this.props.focused ? "focused iconfont" : "iconfont"}    >
                             &#xe637;
                         </span>
+                        <SearchListShow>
+                            <SearchTitle>
+                                Hot searches
+                                <SearchSwitch>Change another batch</SearchSwitch>
+                            </SearchTitle>
+
+                            <SearchItemWrapper>
+                                <SearchItem>
+                                    EDU
+                                </SearchItem>
+                                <SearchItem>
+                                    EDU
+                                </SearchItem>
+                                <SearchItem>
+                                    EDU
+                                </SearchItem>
+                                <SearchItem>
+                                    EDU
+                                </SearchItem>
+                                <SearchItem>
+                                    EDU
+                                </SearchItem>
+                                <SearchItem>
+                                    EDU
+                                </SearchItem>
+                            </SearchItemWrapper>
+                        </SearchListShow>
                     </SearchWraper>
 
                     <Addition>

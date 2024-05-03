@@ -93,6 +93,50 @@ export const SearchWraper = styled.div`
 
 `;
 
+export const SearchListShow = styled.div`
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 240px;
+    padding-right: 15px;
+    padding-top: 7px;
+    
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+`;
+// background: green;   No:  float: left;
+export const SearchTitle = styled.div`
+
+    margin-left: 10px;
+    margin-bottom: 15px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #969696
+`;
+
+export const SearchSwitch = styled.span`
+    float: right;
+    font-size: 13px;
+    color: #aaa;
+`;
+
+export const SearchItemWrapper = styled.div`
+    overflow: hidden;
+    padding: 0 20px;
+`;
+
+export const SearchItem = styled.a`
+    float: left;
+    display: block;
+    padding: 0 5px;
+    margin-right: 10px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #787878;
+    border-radius: 3px;
+    border: 1px solid #ddd
+
+`;
+
 export const Addition = styled.div`
     position: absolute;
     right: 0;
