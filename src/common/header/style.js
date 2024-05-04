@@ -100,14 +100,13 @@ export const SearchListShow = styled.div`
     width: 240px;
     padding-right: 15px;
     padding-top: 7px;
-    
     box-shadow: 0 0 8px rgba(0, 0, 0, .2);
 `;
 // background: green;   No:  float: left;
 export const SearchTitle = styled.div`
 
-    margin-left: 10px;
-    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
     line-height: 20px;
     font-size: 14px;
     color: #969696
@@ -121,7 +120,7 @@ export const SearchSwitch = styled.span`
 
 export const SearchItemWrapper = styled.div`
     overflow: hidden;
-    padding: 0 20px;
+    padding: 0 15px;
 `;
 
 export const SearchItem = styled.a`
@@ -129,6 +128,7 @@ export const SearchItem = styled.a`
     display: block;
     padding: 0 5px;
     margin-right: 10px;
+    margin-bottom: 10px;
     font-size: 12px;
     line-height: 20px;
     color: #787878;
