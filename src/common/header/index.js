@@ -21,6 +21,7 @@ import {
 class Header extends Component {
 
     render() {
+        const { focused, handleSearchFocus, handleSearchBlur } = this.props; // new
         return (
             <HeaderWrapper>
                 <Logo></Logo>
@@ -33,21 +34,21 @@ class Header extends Component {
                     </NavItem>
                     <SearchWraper>
                         <CSSTransition
-                            in={this.props.focused}
+                            in={focused}
                             timeout={200}
                             classNames="slide"
                         >
                             <Search
-                                className={this.props.focused ? "focused" : ""}
-                                onFocus={this.props.handleSearchFocus}
-                                onBlur={this.props.handleSearchBlur}
+                                className={focused ? "focused" : ""}
+                                onFocus={handleSearchFocus}
+                                onBlur={handleSearchBlur}
                             >
                             </Search>
                         </CSSTransition>
-                        <span className={this.props.focused ? "focused iconfont" : "iconfont"}    >
+                        <span className={focused ? "focused iconfont" : "iconfont"}    >
                             &#xe637;
                         </span>
-                        {this.showListArea(this.props.focused)}
+                        {this.showListArea(focused)}
                     </SearchWraper>
 
                     <Addition>
@@ -62,9 +63,10 @@ class Header extends Component {
             </HeaderWrapper>
         );
     }
-    // put the function outside of Header
-    showListArea(show) {
-        if (show) {
+
+    showListArea() {
+        const { focused, list } = this.props; // new
+        if (focused) {
             return (
                 <SearchListShow>
                     <SearchTitle>
@@ -73,7 +75,7 @@ class Header extends Component {
                     </SearchTitle>
 
                     <SearchItemWrapper>
-                        {this.props.list.map((item) => {
+                        {list.map((item) => {
                             return (
                                 <SearchItem key={item}>
                                     {item}
