@@ -17,43 +17,7 @@ import {
     SearchWraper,
     SearchItem
 } from "./style";
-// put the function outside of Header
-const showListArea = (show) => {
-    if (show) {
-        return (
-            <SearchListShow>
-                <SearchTitle>
-                    Hot searches
-                    <SearchSwitch>Change another batch</SearchSwitch>
-                </SearchTitle>
 
-                <SearchItemWrapper>
-                    <SearchItem>
-                        EDU
-                    </SearchItem>
-                    <SearchItem>
-                        EDU
-                    </SearchItem>
-                    <SearchItem>
-                        EDU
-                    </SearchItem>
-                    <SearchItem>
-                        EDU
-                    </SearchItem>
-                    <SearchItem>
-                        EDU
-                    </SearchItem>
-                    <SearchItem>
-                        EDU
-                    </SearchItem>
-                </SearchItemWrapper>
-            </SearchListShow>
-        );
-    } else {
-        return null;
-    }
-
-}
 class Header extends Component {
 
     render() {
@@ -83,7 +47,7 @@ class Header extends Component {
                         <span className={this.props.focused ? "focused iconfont" : "iconfont"}    >
                             &#xe637;
                         </span>
-                        {showListArea(this.props.focused)}
+                        {this.showListArea(this.props.focused)}
                     </SearchWraper>
 
                     <Addition>
@@ -98,6 +62,43 @@ class Header extends Component {
             </HeaderWrapper>
         );
     }
+    // put the function outside of Header
+    showListArea(show) {
+        if (show) {
+            return (
+                <SearchListShow>
+                    <SearchTitle>
+                        Hot searches
+                        <SearchSwitch>Change another batch</SearchSwitch>
+                    </SearchTitle>
+
+                    <SearchItemWrapper>
+                        <SearchItem>
+                            EDU
+                        </SearchItem>
+                        <SearchItem>
+                            EDU
+                        </SearchItem>
+                        <SearchItem>
+                            EDU
+                        </SearchItem>
+                        <SearchItem>
+                            EDU
+                        </SearchItem>
+                        <SearchItem>
+                            EDU
+                        </SearchItem>
+                        <SearchItem>
+                            EDU
+                        </SearchItem>
+                    </SearchItemWrapper>
+                </SearchListShow>
+            );
+        } else {
+            return null;
+        }
+
+    }
 
 }
 
@@ -111,6 +112,8 @@ const mapStateToDispatch = (dispatch) => {
     return {
         handleSearchFocus() {
             //console.log('15999');
+            const actionGetList = actionCreators.getList();
+            dispatch(actionGetList);
             const action = actionCreators.searchFocus();
             dispatch(action);
         },
