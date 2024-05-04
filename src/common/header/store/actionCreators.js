@@ -1,5 +1,6 @@
 import * as constants from './constants.js';
 import axios from 'axios';
+import { fromJS } from 'immutable';
 
 export const searchFocus = () => {
     return {
@@ -14,11 +15,16 @@ export const searchBlur = () => ({
 export const getList = () => {
     return (dispatch) => axios.get('./api/headerList.json').then((res) => {
         console.log(res.data.data);
-    }).catch()
+        const action = changeList(fromJS(res.data.data));
+        dispatch(action);
+    }).catch(() => {
+        console.log('error');
+    })
 };
 
-export const updateList = () => ({
-    type: constants.SEARCH_BLUR
+const changeList = (data) => ({
+    type: constants.CHANGE_LIST,
+    data: data
 });
 
 

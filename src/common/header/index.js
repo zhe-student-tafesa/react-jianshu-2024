@@ -73,24 +73,15 @@ class Header extends Component {
                     </SearchTitle>
 
                     <SearchItemWrapper>
-                        <SearchItem>
-                            EDU
-                        </SearchItem>
-                        <SearchItem>
-                            EDU
-                        </SearchItem>
-                        <SearchItem>
-                            EDU
-                        </SearchItem>
-                        <SearchItem>
-                            EDU
-                        </SearchItem>
-                        <SearchItem>
-                            EDU
-                        </SearchItem>
-                        <SearchItem>
-                            EDU
-                        </SearchItem>
+                        {this.props.list.map((item) => {
+                            return (
+                                <SearchItem key={item}>
+                                    {item}
+                                </SearchItem>
+                            );
+                        })}
+
+
                     </SearchItemWrapper>
                 </SearchListShow>
             );
@@ -104,7 +95,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.get('header').get('focused')
+        focused: state.get('header').get('focused'),
+        list: state.get('header').get('list')
     };
 }
 

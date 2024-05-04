@@ -97,7 +97,7 @@ export const SearchListShow = styled.div`
     position: absolute;
     top: 56px;
     left: 0;
-    width: 240px;
+    width: 360px;
     padding-right: 15px;
     padding-top: 7px;
     box-shadow: 0 0 8px rgba(0, 0, 0, .2);
