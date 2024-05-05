@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 
 class Topic extends Component {
     render() {
-        const { list } = this.props;
+        const { topicList } = this.props;
         return (
             <TopicWrapper>
-                {list.map((item) => {
+                {topicList.map((item) => {
                     return (<TopicItem key={item.get('id')}>
-                        <img className="topic-pic" src={item.get('imgURL')} />
+                        <img className="topic-pic" src={item.get('imgURL')} alt="" />
                         {item.get('title')}
                     </TopicItem>);
                 })}
@@ -22,7 +22,7 @@ class Topic extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.get('home').get('list')
+        topicList: state.get('home').get('topicList')
     };
 };
 

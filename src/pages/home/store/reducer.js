@@ -2,7 +2,7 @@ import { constants } from "./index.js";
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-    list: [{
+    topicList: [{
         id: 1,
         title: 'Politics',
         imgURL: 'https://live-production.wcms.abc-cdn.net.au/8aaf0bdc368edcd31c9d6ed064c83c27?impolicy=wcms_crop_resize&cropH=3333&cropW=5000&xPos=0&yPos=0&width=862&height=575'
