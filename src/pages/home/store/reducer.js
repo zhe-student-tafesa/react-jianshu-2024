@@ -39,6 +39,26 @@ const defaultState = fromJS({
         imgURL: 'https://live-production.wcms.abc-cdn.net.au/d679ebcc632ac3500a8c43ab4cb32579?impolicy=wcms_crop_resize&cropH=2813&cropW=5000&xPos=0&yPos=511&width=862&height=485'
     }
     ],
+    articleList: [
+        {
+            id: 1,
+            title: 'A behind-the-scenes look at the making of Ziggy Ramo\'s Human?',
+            desc: 'Ziggy Ramo has taken a three-dimensional approach to his new project delivering a book, an album and incorporating visual art by his sister Brydi Fatnowna. He.....',
+            imgURL: 'https://live-production.wcms.abc-cdn.net.au/afe37024abc8701f94d52f2ba76c2a7e?impolicy=wcms_crop_resize&cropH=2000&cropW=3555&xPos=0&yPos=847&width=862&height=485'
+        },
+        {
+            id: 2,
+            title: '\'Warned us\': Germany\'s foreign minister speaks of deep Russia trade regret',
+            desc: 'Germany\'s foreign minister tells 7.30 her nation was caught out being over-reliant on Russian oil and gas and has urged nations worldwide not to do the same in regards to China......',
+            imgURL: 'https://live-production.wcms.abc-cdn.net.au/8aaf0bdc368edcd31c9d6ed064c83c27?impolicy=wcms_crop_resize&cropH=3333&cropW=5000&xPos=0&yPos=0&width=862&height=575'
+        },
+        {
+            id: 3,
+            title: 'Wests Tigers halfback cops massive ban as Sharks, Knights record soggy victories',
+            desc: 'Cronulla-Sutherland came from behind to beat St George Illawarra 20-10 at a sodden Shark Park after the Knights edged the Warriors 14-8 at Newcastle......',
+            imgURL: 'https://live-production.wcms.abc-cdn.net.au/40e4274d9ceb580ed474b641d2c9d1f2?impolicy=wcms_crop_resize&cropH=2411&cropW=4286&xPos=0&yPos=144&width=862&height=485'
+        },
+    ]
 });
 
 const reducer = (state = defaultState, action) => {

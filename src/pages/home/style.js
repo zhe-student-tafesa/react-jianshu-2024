@@ -59,7 +59,7 @@ export const ListItem = styled.div`
         float: right;
         height: 100px;
         width: 125px;
-        border-radius: 20px;
+        border-radius: 10px;
     }
 `;
 
