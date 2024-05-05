@@ -21,7 +21,7 @@ import {
 class Header extends Component {
 
     render() {
-        const { focused, handleSearchFocus, handleSearchBlur } = this.props; // new
+        const { focused, list, handleSearchFocus, handleSearchBlur } = this.props; // new
 
         return (
             <HeaderWrapper>
@@ -41,7 +41,7 @@ class Header extends Component {
                         >
                             <Search
                                 className={focused ? "focused" : ""}
-                                onFocus={handleSearchFocus}
+                                onFocus={() => handleSearchFocus(list)}
                                 onBlur={handleSearchBlur}
                             >
                             </Search>
@@ -111,10 +111,13 @@ const mapStateToProps = (state) => {
 
 const mapStateToDispatch = (dispatch) => {
     return {
-        handleSearchFocus() {
-            //console.log('15999');
-            const actionGetList = actionCreators.getList();
-            dispatch(actionGetList);
+        handleSearchFocus(list) {
+            console.log(list.size);
+            if (list.size === 0) {
+                const actionGetList = actionCreators.getList();
+                dispatch(actionGetList);
+            }
+
             const action = actionCreators.searchFocus();
             dispatch(action);
         },
