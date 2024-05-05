@@ -46,7 +46,7 @@ class Header extends Component {
                             >
                             </Search>
                         </CSSTransition>
-                        <span className={focused ? "focused iconfont" : "iconfont"}    >
+                        <span className={focused ? "focused iconfont zoom" : "iconfont zoom"}    >
                             &#xe637;
                         </span>
                         {this.showListArea()}
@@ -81,7 +81,9 @@ class Header extends Component {
                 <SearchListShow onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <SearchTitle>
                         Hot searches
-                        <SearchSwitch onClick={() => changePage(page, totalPage)}>Change another batch</SearchSwitch>
+                        <SearchSwitch onClick={() => changePage(page, totalPage, this.spinIcon)}>
+                            <span ref={(icon) => { this.spinIcon = icon }} className="iconfont spin">&#xe851;</span>Change another batch
+                        </SearchSwitch>
                     </SearchTitle>
 
                     <SearchItemWrapper>
@@ -128,8 +130,19 @@ const mapStateToDispatch = (dispatch) => {
             const action = actionCreators.mouseLeave();
             dispatch(action);
         },
-        changePage(page, totalPage) {
-            //console.log(page, totalPage);
+        changePage(page, totalPage, icon) {
+            // console.log(icon);
+            // add animation : use DOM
+            // get number from STRING
+            let originalDeg = icon.style.transform.replace(/[^0-9]/ig, '');
+            if (originalDeg) {
+                originalDeg = parseInt(originalDeg, 10);
+            } else {// first time: 0
+                originalDeg = 0;
+            }
+            originalDeg = originalDeg + 360;
+            icon.style.transform = 'rotate(' + originalDeg + 'deg)';
+
             if (page < totalPage) {
                 const action = actionCreators.changePage(page + 1);
                 dispatch(action);

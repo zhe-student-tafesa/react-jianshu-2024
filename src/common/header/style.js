@@ -76,7 +76,7 @@ export const SearchWraper = styled.div`
     .slide-exit-active {
         width: 160px;
     }
-    .iconfont{
+    .zoom{
         position: absolute;
         width: 30px;
         line-height: 30px;
@@ -116,6 +116,14 @@ export const SearchSwitch = styled.span`
     float: right;
     font-size: 13px;
     color: #aaa;
+    .spin {
+        display: block;
+        float: left;
+        font-size: 12px;
+        margin-right: 2px;
+        transition: all .2s ease-in;
+        transform-origin: center center;
+    }
 `;
 
 export const SearchItemWrapper = styled.div`
