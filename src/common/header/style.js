@@ -115,6 +115,7 @@ export const SearchTitle = styled.div`
 export const SearchSwitch = styled.span`
     float: right;
     font-size: 13px;
+    cursor: pointer;
     color: #aaa;
     .spin {
         display: block;
