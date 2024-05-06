@@ -9,7 +9,7 @@ class Recommend extends Component {
             <div>
                 <RecommendWrapper>
                     {recommendList.map((item) => {
-                        return (<RecommendItem href={item.get('linkURL')}>
+                        return (<RecommendItem href={item.get('linkURL')} key={item.get('id')} >
                             <span className="title">{item.get('title')}</span>
                             <div className="cities">
                                 <span >{item.get('cities')}</span>
