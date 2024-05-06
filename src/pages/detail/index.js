@@ -1,28 +1,26 @@
 import React, { PureComponent } from "react";
 import { Content, DetailWrapper, Header } from "./style";
+import { connect } from "react-redux";
 
 class Detail extends PureComponent {
     render() {
+        const { title, content } = this.props;
         return (
             <DetailWrapper>
                 <Header>
-                    Vikings enjoyed cinnamon buns
+                    {title}
                 </Header>
-                <Content>
-                    <img src="https://live-production.wcms.abc-cdn.net.au/51290378bd8f3540cf9f11c7190eadd5?impolicy=wcms_crop_resize&cropH=2813&cropW=5000&xPos=0&yPos=260&width=862&height=485" />
-                    <p>
-                        Why is vanilla a byword for <b>boring</b>? How did peppercorns end up next to salt on every western table? Did you know the Vikings were rather partial to cinnamon buns? Food writer Eleanor Ford explores the rich history of spices.
-                    </p>
-                    <p>
-                        Why is vanilla a byword for <b>boring</b>? How did peppercorns end up next to salt on every western table? Did you know the Vikings were rather partial to cinnamon buns? Food writer Eleanor Ford explores the rich history of spices.
-                    </p>
-                    <p>
-                        Why is vanilla a byword for <b>boring</b>? How did peppercorns end up next to salt on every western table? Did you know the Vikings were rather partial to cinnamon buns? Food writer Eleanor Ford explores the rich history of spices.
-                    </p>
+                <Content dangerouslySetInnerHTML={{ __html: content }}>
+
                 </Content>
             </DetailWrapper>
         );
     }
 }
-
-export default Detail; 
+const mapStateToProps = (state) => {
+    return {
+        title: state.getIn(['detail', 'title']),
+        content: state.getIn(['detail', 'content']),
+    }
+}
+export default connect(mapStateToProps, null)(Detail); 
