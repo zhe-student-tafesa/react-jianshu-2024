@@ -114,13 +114,29 @@ export const RecommendItem = styled.a`
 `;
 
 export const LoadMoreButton = styled.div`
-margin: 30px 0;
-height: 40px;
-width: 100%;
-background: #dcdcdc;
-color: #000;
-text-align: center;
-line-height:40px;
-border-radius: 20px;
-cursor: pointer;
+    margin: 30px 0;
+    height: 40px;
+    width: 100%;
+    background: #dcdcdc;
+    color: #000;
+    text-align: center;
+    line-height:40px;
+    border-radius: 20px;
+    cursor: pointer;
+`;
+
+
+export const BackTop = styled.div`
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    height: 60px;
+    width: 80px;
+    background: #a5a5a5;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height:60px;
+    border: 1px solid #ccc;
+
 `;

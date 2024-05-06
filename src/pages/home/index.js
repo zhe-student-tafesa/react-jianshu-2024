@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HomeLeft, HomeRight, HomeWrapper } from "./style";
+import { BackTop, HomeLeft, HomeRight, HomeWrapper } from "./style";
 import Topic from "./components/Topic";
 import List from "./components/List";
 import Recommend from "./components/Recommend.js";
@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { actionCreators } from "./store/index.js";
 class Home extends Component {
     render() {
+        const { showScroll } = this.props;
         return (
             <HomeWrapper>
                 <HomeLeft>
@@ -19,13 +20,25 @@ class Home extends Component {
                     <Recommend></Recommend>
                     <Writer></Writer>
                 </HomeRight>
-            </HomeWrapper>
+                {showScroll ? <BackTop onClick={this.handleScrollTop}>Back to top</BackTop> : null}
 
+            </HomeWrapper>
         );
+    }
+    handleScrollTop() {
+        window.scrollTo(0, 0);
     }
     componentDidMount() {
         this.props.changeHomeData();
-
+        this.bindEvents();
+    }
+    bindEvents() {
+        window.addEventListener('scroll', this.props.changeScrollShow);
+    }
+}
+const mapStateToProps = (state) => {
+    return {
+        showScroll: state.getIn(['home', 'showScroll']),
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -33,8 +46,17 @@ const mapDispatchToProps = (dispatch) => {
         changeHomeData() {
             const action = actionCreators.getHomeData();
             dispatch(action);
+        },
+        changeScrollShow() {
+            //console.log(document.documentElement.scrollTop);
+            if (document.documentElement.scrollTop > 150) {
+                const action = actionCreators.toggleScrollShow(true);
+                dispatch(action);
+            } else {
+                const action = actionCreators.toggleScrollShow(false);
+                dispatch(action);
+            }
         }
     }
-
 }
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

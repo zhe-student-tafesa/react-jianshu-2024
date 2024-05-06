@@ -18,6 +18,15 @@ const addArticleData = (result, newArticlePage) => {
     }
 };
 
+export const toggleScrollShow = (show) => {
+    return {
+        type: constants.TOGGLE_SCROLL_SHOW,
+        showScroll: show,
+    }
+};
+
+
+
 export const getHomeData = () => {
     return (dispatch) => axios.get('./api/home.json').then((res) => {
         const data = res.data.data;
