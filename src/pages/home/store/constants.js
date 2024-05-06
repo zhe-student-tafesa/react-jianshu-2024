@@ -1,1 +1,1 @@
-export const SEARCH_FOCUS = 'header/SEARCH_FOCUS';
+export const CHANGE_HOME_DATA = 'home/CHANGE_HOME_DATA';

@@ -5,7 +5,7 @@ import List from "./components/List";
 import Recommend from "./components/Recommend.js";
 import Writer from "./components/Writer.js";
 import { connect } from "react-redux";
-import axios from "axios";
+import { actionCreators } from "./store/index.js";
 class Home extends Component {
     render() {
         return (
@@ -24,24 +24,17 @@ class Home extends Component {
         );
     }
     componentDidMount() {
-        axios.get('./api/home.json').then((res) => {
-            //console.log(res.data.data);
-            const data = res.data.data;
-            const action = {
-                type: 'change_home_data',
-                topicList: data.topicList,
-                articleList: data.articleList,
-                recommendList: data.recommendList
-            };
-            this.props.changeHomeData(action);
-        });
+        this.props.changeHomeData();
+
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeHomeData(action) {
+        changeHomeData() {
+            const action = actionCreators.getHomeData();
             dispatch(action);
         }
-    };
+    }
+
 }
 export default connect(null, mapDispatchToProps)(Home);
