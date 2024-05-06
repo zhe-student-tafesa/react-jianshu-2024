@@ -10,7 +10,7 @@ class Topic extends Component {
                 {topicList.map((item) => {
                     return (<TopicItem key={item.get('id')}>
                         <img className="topic-pic" src={item.get('imgURL')} alt="" />
-                        <a href={item.get('topicURL')}>{item.get('title')}</a>
+                        <a href={item.get('topicURL')} className="no-underline" >{item.get('title')}</a>
                     </TopicItem>);
                 })}
 

@@ -58,6 +58,35 @@ const defaultState = fromJS({
             desc: 'Cronulla-Sutherland came from behind to beat St George Illawarra 20-10 at a sodden Shark Park after the Knights edged the Warriors 14-8 at Newcastle......',
             imgURL: 'https://live-production.wcms.abc-cdn.net.au/40e4274d9ceb580ed474b641d2c9d1f2?impolicy=wcms_crop_resize&cropH=2411&cropW=4286&xPos=0&yPos=144&width=862&height=485'
         },
+    ],
+    recommendList: [
+        {
+            id: 1,
+            title: 'Brisbane',
+            cities: 'Brisbane, Ipswich, Logan',
+            linkURL: 'https://www.abc.net.au/brisbane'
+        }, {
+            id: 2,
+            title: 'Gold Coast',
+            cities: 'Coolangatta, Robina, Surfers Paradise',
+            linkURL: 'https://www.abc.net.au/goldcoast'
+        }, {
+            id: 3,
+            title: 'Sunshine Coast',
+            cities: 'Maleny, Maroochydore, Noosa',
+            linkURL: 'https://www.abc.net.au/sunshine'
+        }, {
+            id: 4,
+            title: 'Western Queensland',
+            cities: 'Barcaldine, Charleville, Longreach',
+            linkURL: 'https://www.abc.net.au/westqld'
+        }, {
+            id: 5,
+            title: 'Tropical North',
+            cities: 'Mackay, Moranbah, Whitsunday',
+            linkURL: 'https://www.abc.net.au/tropic'
+        },
+
     ]
 });
 

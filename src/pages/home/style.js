@@ -16,8 +16,7 @@ export const HomeLeft = styled.div`
 `;
 export const HomeRight = styled.div`
     float: right;
-    width: 240px;
-    background: green;
+    width: 280px;
 `;
 
 
@@ -47,6 +46,9 @@ export const TopicItem = styled.div`
         height: 32px;
         width: 32px;
     }
+    .no-underline {
+        text-decoration: none;
+      }
 `;
 
 export const ListItem = styled.div`
@@ -81,5 +83,32 @@ export const ListInfo = styled.div`
         font-size: 13px;
         color: #999;
     }
+`;
 
+export const RecommendWrapper = styled.div`
+    margin: 30px 0;
+    width: 280px;
+`;
+
+export const RecommendItem = styled.a`
+    display: block;
+    width: 280px;
+    height: 85px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background: rgb(223, 228, 249);
+    padding: 18px 15px;
+    text-decoration: none; 
+    .title{
+        font-size: 16px;
+        color: black;
+        text-decoration: underline;
+    }
+    .cities{
+        padding-top: 13px;
+        font-size: 15px;
+        color: #666;
+    }
 `;
