@@ -101,6 +101,7 @@ export const SearchListShow = styled.div`
     padding-right: 15px;
     padding-top: 7px;
     box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    background: #fff;
 `;
 // background: green;   No:  float: left;
 export const SearchTitle = styled.div`
