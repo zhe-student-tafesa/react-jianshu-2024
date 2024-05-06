@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from './store/index.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/home/index.js";
+import Detail from "./pages/detail/index.js";
 class App extends Component {
   render() {
     return (
@@ -18,7 +19,7 @@ class App extends Component {
             <BrowserRouter>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/detail' element={<div>detail</div>} />
+                <Route path='/detail' element={<Detail />} />
                 <Route path='/login' element={<div>login</div>} />
                 <Route path='/write' element={<div>write</div>} />
               </Routes>
