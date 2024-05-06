@@ -112,3 +112,15 @@ export const RecommendItem = styled.a`
         color: #666;
     }
 `;
+
+export const LoadMoreButton = styled.div`
+margin: 30px 0;
+height: 40px;
+width: 100%;
+background: #dcdcdc;
+color: #000;
+text-align: center;
+line-height:40px;
+border-radius: 20px;
+cursor: pointer;
+`;
