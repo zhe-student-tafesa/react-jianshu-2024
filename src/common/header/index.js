@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import { actionCreators } from './store/index.js'
+import { actionCreators } from './store/index.js';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
 import {
     Addition,
     Button,
@@ -18,10 +19,11 @@ import {
     SearchItem
 } from "./style";
 
+
 class Header extends PureComponent {
 
     render() {
-        const { focused, list, handleSearchFocus, handleSearchBlur } = this.props; // new
+        const { focused, list, login, handleSearchFocus, handleSearchBlur, logout } = this.props; // new
 
         return (
             <HeaderWrapper>
@@ -29,7 +31,10 @@ class Header extends PureComponent {
                 <Nav>
                     <NavItem className="left active">Home page</NavItem>
                     <NavItem className="left">Download App</NavItem>
-                    <NavItem className="right">Login</NavItem>
+                    {login ?
+                        <NavItem className="right" onClick={logout}>Log out</NavItem> :
+                        <a href='/login'><NavItem className="right">Login</NavItem></a>
+                    }
                     <NavItem className="right">
                         <span className="iconfont">&#xe636;</span>
                     </NavItem>
@@ -106,6 +111,7 @@ const mapStateToProps = (state) => {
         page: state.get('header').get('page'),
         totalPage: state.get('header').get('totalPage'),
         mouseIn: state.get('header').get('mouseIn'),
+        login: state.get('login').get('login'),
     };
 }
 
@@ -154,6 +160,10 @@ const mapStateToDispatch = (dispatch) => {
                 dispatch(action);
             }
 
+        },
+        logout() {
+            const action = loginActionCreators.logout();
+            dispatch(action);
         }
 
     };

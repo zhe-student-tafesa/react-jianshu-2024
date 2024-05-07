@@ -2,17 +2,19 @@ import { constants } from "./index.js";
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-    title: "",
-    content: ""
+    login: false,
 });
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
 
-        case constants.CHANGE_DETAIL:
+        case constants.CHANGE_LOGIN:
             return state.merge({
-                title: action.title,
-                content: action.content,
+                login: action.login,
+            });
+        case constants.CHANGE_LOGOUT:
+            return state.merge({
+                login: action.login,
             });
 
         default:

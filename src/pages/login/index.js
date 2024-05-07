@@ -2,34 +2,37 @@ import React, { PureComponent } from "react";
 import { Button, Input, LoginBox, LoginWrapper } from "./style";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
+import { Navigate } from "react-router-dom";
 
 class Login extends PureComponent {
     render() {
-        const { title, content } = this.props;
-        return (
-            <LoginWrapper>
-                <LoginBox>
-                    <Input placeholder="Account"></Input>
-                    <Input placeholder="Password"></Input>
-                    <Button>Log in</Button>
-                </LoginBox>
-            </LoginWrapper>
-        );
+        const { loginStatus } = this.props;
+        if (!loginStatus) {
+            return (
+                <LoginWrapper>
+                    <LoginBox>
+                        <Input placeholder="Account" ref={(input) => { this.account = input }}></Input>
+                        <Input placeholder="Password" ref={(input) => { this.password = input }} type='password'></Input>
+                        <Button onClick={() => this.props.login(this.account, this.password)}>Log in</Button>
+                    </LoginBox>
+                </LoginWrapper>
+            );
+        } else {
+            return <Navigate to='/' />
+        }
+
     }
-    componentDidMount() {
-        this.props.getDetail();
-    }
+
 }
 const mapStateToProps = (state) => {
     return {
-        title: state.getIn(['detail', 'title']),
-        content: state.getIn(['detail', 'content']),
+        loginStatus: state.getIn(['login', 'login']),
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getDetail() {
-            const action = actionCreators.getDetail();
+        login(accountEle, passwordEle) {
+            const action = actionCreators.login(accountEle.value, passwordEle.value);
             dispatch(action);
         }
     }

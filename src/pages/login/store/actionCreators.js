@@ -1,27 +1,37 @@
 import * as constants from './constants.js';
 import axios from 'axios';
 
-const changeDetail = (data) => {
+const changeLogin = () => {
     return {
-        type: constants.CHANGE_DETAIL,
-        title: data.title,
-        content: data.content,
+        type: constants.CHANGE_LOGIN,
+        login: true
     }
 };
 
 
 
-export const getDetail = () => {
-    return (dispatch) => axios.get('http://localhost:3000/api/detail.json').then((res) => {
+export const login = (account, password) => {
+    // todo : use post
+    return (dispatch) => axios.get('http://localhost:3000/api/login.json?account=' + account + '&password=' + password).then((res) => {
         const result = res.data.data;
-        const action = changeDetail(result);
-        dispatch(action);
+        if (result) {
+            console.log(res);
+            const action = changeLogin();
+            dispatch(action);
+        }
+
     }).catch((err) => {
         console.log(err);
         console.log("res.data.data err");
     });
 };
 
+export const logout = () => {
+    return {
+        type: constants.CHANGE_LOGOUT,
+        login: false
+    }
+};
 
 
 
