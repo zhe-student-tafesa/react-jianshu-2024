@@ -34,7 +34,7 @@ class Header extends PureComponent {
                     <NavItem className="left">Download App</NavItem>
                     {login ?
                         <NavItem className="right" onClick={logout}>Log out</NavItem> :
-                        <a href='/login'><NavItem className="right">Login</NavItem></a>
+                        <Link to='/login'><NavItem className="right">Login</NavItem></Link>
                     }
                     <NavItem className="right">
                         <span className="iconfont">&#xe636;</span>
