@@ -12,7 +12,7 @@ const changeDetail = (data) => {
 
 
 export const getDetail = () => {
-    return (dispatch) => axios.get('http://localhost:3000/api/detail.json').then((res) => {
+    return (dispatch) => axios.get('./api/detail.json').then((res) => {
         const result = res.data.data;
         const action = changeDetail(result);
         dispatch(action);

@@ -22,7 +22,7 @@ class App extends Component {
               <Header></Header>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/detail/:id' element={<Detail />} />
+                <Route path='/detail' element={<Detail />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/write' element={<PostArticle />} />
               </Routes>

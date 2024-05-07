@@ -12,7 +12,7 @@ const changeLogin = () => {
 
 export const login = (account, password) => {
     // todo : use post
-    return (dispatch) => axios.get('http://localhost:3000/api/login.json?account=' + account + '&password=' + password).then((res) => {
+    return (dispatch) => axios.get('./api/login.json?account=' + account + '&password=' + password).then((res) => {
         const result = res.data.data;
         if (result) {
             console.log(res);
