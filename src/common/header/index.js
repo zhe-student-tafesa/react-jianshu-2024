@@ -62,7 +62,8 @@ class Header extends PureComponent {
                             <span className="iconfont">&#xe708;</span>
                             Write an article
                         </Button>
-                        <Button className="reg">Register</Button>
+                        {login ? null : <Button className="reg">Register</Button>}
+
                     </Addition>
                 </Nav>
 
