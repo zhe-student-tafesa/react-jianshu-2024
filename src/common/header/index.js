@@ -33,7 +33,10 @@ class Header extends PureComponent {
                 </Link>
 
                 <Nav>
-                    <NavItem className="left active">Home page</NavItem>
+                    <Link to='/'><NavItem className="left active">
+                        Home page</NavItem>
+                    </Link>
+
                     <NavItem className="left">Download App</NavItem>
                     {login ?
                         <NavItem className="right" onClick={logout}>Log out</NavItem> :
