@@ -28,7 +28,10 @@ class Header extends PureComponent {
 
         return (
             <HeaderWrapper>
-                <Logo></Logo>
+                <Link to='/'>
+                    <Logo></Logo>
+                </Link>
+
                 <Nav>
                     <NavItem className="left active">Home page</NavItem>
                     <NavItem className="left">Download App</NavItem>
