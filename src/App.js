@@ -4,7 +4,7 @@ import { GlobalStyleIcon } from './statics/iconfont/iconfont.js';
 import Header from "./common/header/index.js";
 import { Provider } from "react-redux";
 import store from './store/index.js'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/home/index.js";
 import Detail from "./pages/detail/index.js";
 import Login from "./pages/login/index.js";
