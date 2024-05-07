@@ -1,27 +1,26 @@
 import * as constants from './constants.js';
 import axios from 'axios';
 
-// const changeHomeData = (data) => {
-//     return {
-//         type: constants.CHANGE_HOME_DATA,
-//         topicList: data.topicList,
-//         articleList: data.articleList,
-//         recommendList: data.recommendList
-//     }
-// };
+const changeDetail = (data) => {
+    return {
+        type: constants.CHANGE_DETAIL,
+        title: data.title,
+        content: data.content,
+    }
+};
 
 
 
-// export const getMoreArticleData = (articlePage) => {
-//     return (dispatch) => axios.get('./api/homeMoreArticle.json?page=' + articlePage).then((res) => {
-//         const result = res.data.data;
-//         const action = addArticleData(result, articlePage + 1);
-//         dispatch(action);
-//     }).catch((err) => {
-//         console.log(err);
-//         console.log("res.data.data err");
-//     });
-// };
+export const getDetail = () => {
+    return (dispatch) => axios.get('./api/detail.json').then((res) => {
+        const result = res.data.data;
+        const action = changeDetail(result);
+        dispatch(action);
+    }).catch((err) => {
+        console.log(err);
+        console.log("res.data.data err");
+    });
+};
 
 
 
