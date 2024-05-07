@@ -18,6 +18,7 @@ import {
     SearchWraper,
     SearchItem
 } from "./style";
+import { Link } from "react-router-dom";
 
 
 class Header extends PureComponent {
@@ -58,10 +59,13 @@ class Header extends PureComponent {
                     </SearchWraper>
 
                     <Addition>
-                        <Button className="writing">
-                            <span className="iconfont">&#xe708;</span>
-                            Write an article
-                        </Button>
+                        <Link to="/write">
+                            <Button className="writing">
+                                <span className="iconfont">&#xe708;</span>
+                                Write an article
+                            </Button>
+                        </Link>
+
                         {login ? null : <Button className="reg">Register</Button>}
 
                     </Addition>

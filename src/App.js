@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/home/index.js";
 import Detail from "./pages/detail/index.js";
 import Login from "./pages/login/index.js";
+import PostArticle from "./pages/write/index.js";
 class App extends Component {
   render() {
     return (
@@ -16,13 +17,14 @@ class App extends Component {
         <GlobalStyleIcon />
         <Provider store={store}>
           <div>
-            <Header></Header>
+
             <BrowserRouter>
+              <Header></Header>
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/detail/:id' element={<Detail />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/write' element={<div>write</div>} />
+                <Route path='/write' element={<PostArticle />} />
               </Routes>
             </BrowserRouter>
 
