@@ -5,6 +5,7 @@ import { actionCreators } from "./store";
 
 class Detail extends PureComponent {
     render() {
+        console.log(this.props)
         const { title, content } = this.props;
         return (
             <DetailWrapper>
