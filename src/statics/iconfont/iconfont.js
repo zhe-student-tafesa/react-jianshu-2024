@@ -1,7 +1,7 @@
-//为了写全局 样式,  然后在全局 里 写reset.css
+//In order to write global styles, then write reset.css in the global
 import { createGlobalStyle } from 'styled-components';
 
-export const  GlobalStyleIcon =createGlobalStyle`
+export const GlobalStyleIcon = createGlobalStyle`
 
 @font-face {
   font-family: "iconfont"; /* Project id 2984774 */
